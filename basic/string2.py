@@ -56,29 +56,19 @@ def front_back(a, b):
     a_half = int(len(a) / 2)
     a_front = a[:a_half]
     a_back = a[a_half:]
-
-    if len(b) % 2 == 0:
-      b_half = int(len(b) / 2)
-      b_front = b[:b_half]
-      b_back = b[b_half:]
-    else:
-      b_half = int((len(b) / 2) + 0.5)
-      b_front = b[:b_half]
-      b_back = b[b_half:]
-
   else:
     a_half = int((len(a) / 2) + 0.5)
     a_front = a[:a_half]
     a_back = a[a_half:]
 
-    if len(b) % 2 == 0:
-      b_half = int(len(b) / 2)
-      b_front = b[:b_half]
-      b_back = b[b_half:]
-    else:
-      b_half = int((len(b) / 2) + 0.5)
-      b_front = b[:b_half]
-      b_back = b[b_half:]
+  if len(b) % 2 == 0:
+    b_half = int(len(b) / 2)
+    b_front = b[:b_half]
+    b_back = b[b_half:]
+  else:
+    b_half = int((len(b) / 2) + 0.5)
+    b_front = b[:b_half]
+    b_back = b[b_half:]
 
   print(a_front, b_front, a_back, b_back)
   return a_front + b_front + a_back + b_back
