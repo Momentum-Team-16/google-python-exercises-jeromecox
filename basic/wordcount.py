@@ -51,12 +51,38 @@ import sys
 # calls the print_words() and print_top() functions which you must define.
 
 
+def create_count_dict(file):
+  with open(file) as my_file:
+    read_file = my_file.read()
+  lowered_file = read_file.lower()
+  word_list = lowered_file.split()
+
+  word_counts = {}
+
+  for word in word_list:
+    if word not in word_counts.keys():
+      word_counts[word] = word_list.count(word)
+
+  return word_counts
+
+
 def print_words(file):
-  pass
+  word_counts = create_count_dict(file)
+  sorted_all_words = dict(sorted(word_counts.items()))
+
+  for word, count in sorted_all_words.items():
+    print(f'{word} {count}')
+
+
+def get_count(word_count_pair):
+  return word_count_pair[1]
 
 
 def print_top(file):
-  pass
+  top_count = create_count_dict(file)
+  sorted_top_count = sorted(top_count.items(), key=get_count, reverse=True)
+  for top_word, count in sorted_top_count[:20]:
+    print(f'{top_word} {count}')
 
 
 def main():
